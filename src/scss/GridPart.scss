@@ -4,7 +4,12 @@
 @mixin grid {
     width: calc(50% - $grid-margins);
     aspect-ratio: 1 / 1;
-    background-color: yellow
+    background-color: #7a007a;
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    // padding: 5%;
 }
 
 #top-left-grid {
@@ -25,4 +30,23 @@
 #bottom-right-grid {
     @include grid;
     @include bottom-right;
+}
+
+.TaskInput {
+    width: 100%;
+    flex: 1;
+}
+
+.outside-index {
+    position: absolute;
+    right: calc(100% + $text-spacing);
+}
+
+.task-title {
+    @include no-default-input;
+}
+
+.sugested-action {
+    position: absolute;
+    bottom: calc(100% + $text-spacing);
 }

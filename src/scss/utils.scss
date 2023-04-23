@@ -21,3 +21,21 @@
     right: 0%;
     bottom: 0%;
 }
+
+@mixin no-default-input {
+    box-shadow : none;
+    padding: 0px;
+    border: none;
+
+    outline: none;
+
+    -webkit-appearance:     none;
+    -moz-appearance:        none;
+    -ms-appearance:         none;
+    -o-appearance:          none;
+    appearance:             none;
+
+    font: inherit;
+    color: inherit;
+    background-color: inherit;
+}

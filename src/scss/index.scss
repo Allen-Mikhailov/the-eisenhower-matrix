@@ -1,8 +1,23 @@
+@use "./spacing.scss" as *;
+
 body {
-    background-color: rgb(53, 53, 53);
+    background-color: rgb(27, 27, 27);
     width: 100vw;
     height: 100vh;
     margin: 0px;
+
+    font-family:'Lexend Deca';
+    // font-weight: 500;
+    color: white;
+    font-size: min(2vh, 2vw);
+}
+
+.base-font {
+    font-size: min(2vh, 2vw);
+}
+
+.title-font {
+    font-size: min(5vh, 5vw);
 }
 
 @mixin center {
@@ -15,15 +30,24 @@ body {
 #mid-container {
     @include center;
     width: min(75vw, 75vh);
-    background-color: red;
+    // background-color: red;
     aspect-ratio: 1 / 1;
 }
 
 #mid-grid {
     @include center;
 
-    width: 75%;
-    height: 75%;
+    width: $matrix-size;
+    height: $matrix-size;
 
-    background-color: blue;
+    // background-color: blue;
+}
+
+#title {
+    // width: 100%;
+
+    position: absolute;
+    // text-align: center;
+    left: 2.5%;
+    top: 5%;
 }

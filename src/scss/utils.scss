@@ -1,0 +1,23 @@
+@mixin top-left {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+@mixin top-right {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+}
+
+@mixin bottom-left {
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+}
+
+@mixin bottom-right {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+}

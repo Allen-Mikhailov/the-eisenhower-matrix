@@ -1,0 +1,28 @@
+@use "./spacing.scss" as *;
+@use "./utils.scss" as *;
+
+@mixin grid {
+    width: calc(50% - $grid-margins);
+    aspect-ratio: 1 / 1;
+    background-color: yellow
+}
+
+#top-left-grid {
+    @include grid;
+    @include top-left;
+}
+
+#top-right-grid {
+    @include grid;
+    @include top-right;
+}
+
+#bottom-left-grid {
+    @include grid;
+    @include bottom-left;
+}
+
+#bottom-right-grid {
+    @include grid;
+    @include bottom-right;
+}

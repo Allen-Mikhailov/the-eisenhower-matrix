@@ -15,26 +15,36 @@
 #top-left-grid {
     @include grid;
     @include top-left;
+    background-color: #5C527F;
 }
 
 #top-right-grid {
     @include grid;
     @include top-right;
+    background-color: #D89216;
 }
 
 #bottom-left-grid {
     @include grid;
     @include bottom-left;
+    background-color: #1E5128;
 }
 
 #bottom-right-grid {
     @include grid;
     @include bottom-right;
+    background-color: #A13333;
 }
 
 .TaskInput {
     width: 100%;
     flex: 1;
+
+    border-bottom: 1px solid rgba(46, 46, 46, 0.384);
+
+    &:last-child {
+        border-bottom: none;
+    }
 }
 
 .outside-index {
@@ -44,9 +54,40 @@
 
 .task-title {
     @include no-default-input;
+    margin-left: 5px;
 }
 
 .sugested-action {
     position: absolute;
     bottom: calc(100% + $text-spacing);
+}
+
+.grid-title {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    text-align: center;
+    // height: 10%;
+
+    &.top {
+        bottom: calc(100% + $text-spacing * 14);
+
+        .text {
+            width: calc( $matrix-size / 2 - $grid-margins);
+        }
+    }
+
+    &.left {
+        right: calc(100% + $text-spacing * 14);
+        // 
+        // translate: 50%;
+        // transform-origin: 50% 50%;
+
+        .text {
+            width: calc( $matrix-size / 2 - $grid-margins);
+            rotate: 270deg;
+            transform-origin: 0% 0%;
+            translate: 0% calc( $matrix-size / 2 - $grid-margins);
+        }
+    }
 }

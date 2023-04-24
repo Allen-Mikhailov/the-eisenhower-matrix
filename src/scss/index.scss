@@ -16,6 +16,14 @@ body {
     font-size: min(2vh, 2vw);
 }
 
+.sub1-font {
+    font-size: min(2.5vh, 2.5vw);
+}
+
+.sub2-font {
+    font-size: min(3vh, 3vw);
+}
+
 .title-font {
     font-size: min(5vh, 5vw);
 }
@@ -25,13 +33,6 @@ body {
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-}
-
-#mid-container {
-    @include center;
-    width: min(75vw, 75vh);
-    // background-color: red;
-    aspect-ratio: 1 / 1;
 }
 
 #mid-grid {

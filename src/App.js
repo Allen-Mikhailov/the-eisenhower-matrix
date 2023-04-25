@@ -1,25 +1,36 @@
-import "./scss/index.scss"
+import { useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
-import GridPart from "./components/GridPart.js";
-import GridTitle from "./components/GridTitle.js";
+import {useAuthState} from "react-firebase-hooks/auth"
+import {useCollectionData} from "react-firebase-hooks/firestore"
+
+
+import "./scss/index.scss"
+import MatrixPage from "./pages/MatrixPage";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDAX4rsB_5mhROVijx_mPWaUt0bNXSsmbI",
+    authDomain: "the-eisenhower-matrix.firebaseapp.com",
+    projectId: "the-eisenhower-matrix",
+    storageBucket: "the-eisenhower-matrix.appspot.com",
+    messagingSenderId: "851422289430",
+    appId: "1:851422289430:web:4fbc8a7b856a460e31df37",
+    measurementId: "G-M4SP3DPKQG"
+  };
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
 
 function App() {
+  const [user] = useAuthState()
+
+
   return (
     <div className="App">
       <div id="title" className="title-font">EISENHOWER MATRIX</div>
-        <div id = "mid-grid">
-          <GridPart id="top-left-grid" action="Do">
-            <GridTitle title="Urgent" pos="top"/>
-            <GridTitle title="Important" pos="left"/>
-          </GridPart>
-          <GridPart id="top-right-grid" action="Schedule">
-            <GridTitle title="Not Urgent" pos="top"/>
-          </GridPart>
-          <GridPart id="bottom-left-grid" action="Delegate">
-            <GridTitle title="Not Important" pos="left"/>
-          </GridPart>
-          <GridPart id="bottom-right-grid" action="Delete"/>
-        </div>
+      <MatrixPage/>
     </div>
   );
 }

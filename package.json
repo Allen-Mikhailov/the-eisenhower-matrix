@@ -1,5 +1,6 @@
 {
   "name": "the-eisenhower-matrix",
+  "homepage": "https://SlinkyShelf.github.io/the-eisenhower-matrix",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

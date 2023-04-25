@@ -34,3 +34,6 @@ jobs:
         
       - name: Starts Build
         run: npm run build
+
+      - name: Start Deploy
+        run: gh-pages -d build

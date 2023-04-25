@@ -27,12 +27,22 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+
+      - name: testing
+        run: echo $process.env.CI
         
       - name: Sets up npm
         run: npm i
         
       - name: Starts Build
         run: npm run build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_THE_EISENHOWER_MATRIX }}'
+          channelId: live
+          projectId: the-eisenhower-matrix
 
       - name: Start Deploy
         run: gh-pages -d build

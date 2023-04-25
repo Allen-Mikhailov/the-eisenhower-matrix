@@ -1,5 +1,5 @@
-import GridPart from "./components/GridPart.js";
-import GridTitle from "./components/GridTitle.js";
+import GridPart from "../components/GridPart.js";
+import GridTitle from "../components/GridTitle.js";
 
 function MatrixPage()
 {

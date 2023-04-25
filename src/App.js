@@ -8,6 +8,7 @@ import {useCollectionData} from "react-firebase-hooks/firestore"
 
 import "./scss/index.scss"
 import MatrixPage from "./pages/MatrixPage";
+import SignInPage from "./pages/SignInPage";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDAX4rsB_5mhROVijx_mPWaUt0bNXSsmbI",
@@ -30,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <div id="title" className="title-font">EISENHOWER MATRIX</div>
-      <MatrixPage/>
+      {user ? <MatrixPage/>:<SignInPage/>}
     </div>
   );
 }

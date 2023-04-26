@@ -61,7 +61,7 @@ jobs:
           npm run build
       
       - name: Moving firebase config
-        run: move ./firebase.json ./build/
+        run: sudo mv ./firebase.json ./build/
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

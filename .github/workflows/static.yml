@@ -64,6 +64,13 @@ jobs:
         run: |
           sudo mv ./firebase.json ./build/
           cd ./build
+          
+      - name: debug
+        run: |
+          ls
+          cd ..
+          ls
+          cd ./build
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

@@ -63,17 +63,14 @@ jobs:
       - name: Moving firebase config
         run: |
           sudo mv ./firebase.json ./build/
-          cd ./build
           
       - name: debug
         run: |
           echo "$PWD"
           ls
-          cd ..
-          echo "$PWD"
-          ls
           cd ./build
           echo "$PWD"
+          ls
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -81,4 +78,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_THE_EISENHOWER_MATRIX }}'
           channelId: live
           projectId: the-eisenhower-matrix
-          entryPoint: .
+          entryPoint: .build

@@ -30,6 +30,11 @@ jobs:
 
       - name: testing
         run: echo '${{ env.CI }}'
+
+      - name: Git Config
+        run: |
+          git config --global user.email "slinkyshelf8@gmail.com"
+          git config --global user.name "SlinkyShelf"
         
       - name: Sets up npm
         run: npm i

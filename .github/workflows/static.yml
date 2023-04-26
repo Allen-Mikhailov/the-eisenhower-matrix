@@ -71,6 +71,9 @@ jobs:
           cd ./build
           echo "$PWD"
           ls
+          cd ./static
+          echo "$PWD"
+          ls
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

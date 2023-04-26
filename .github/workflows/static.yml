@@ -67,10 +67,13 @@ jobs:
           
       - name: debug
         run: |
+          echo "$PWD"
           ls
           cd ..
+          echo "$PWD"
           ls
           cd ./build
+          echo "$PWD"
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

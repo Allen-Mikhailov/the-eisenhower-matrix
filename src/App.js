@@ -25,7 +25,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 function App() {
-  const [user] = true//useAuthState()
+  const [user] = [true]//useAuthState()
 
 
   return (

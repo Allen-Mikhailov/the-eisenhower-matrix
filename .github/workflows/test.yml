@@ -45,4 +45,4 @@ jobs:
           projectId: the-eisenhower-matrix
 
       - name: Start Deploy
-        run: gh-pages -d build
+        run: npm gh-pages -d build

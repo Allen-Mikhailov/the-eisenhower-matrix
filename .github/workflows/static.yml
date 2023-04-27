@@ -85,4 +85,3 @@ jobs:
           channelId: live
           projectId: the-eisenhower-matrix
           entryPoint: .
-          target: https://the-eisenhower-matrix.web.app/

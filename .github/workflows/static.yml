@@ -74,6 +74,9 @@ jobs:
           cd ./static
           echo "$PWD"
           ls
+
+      - name: adjusting the package.json
+        run: node editpackage.js
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

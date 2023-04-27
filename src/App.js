@@ -7,7 +7,7 @@ import {useAuthState} from "react-firebase-hooks/auth"
 import "./scss/index.scss"
 import MatrixPage from "./pages/MatrixPage";
 import SignInPage from "./pages/SignInPage";
-
+import UserHeader from "./components/UserHeader";
 
 function App() {
   const [user] = useAuthState(auth)
@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <div id="title" className="title-font">EISENHOWER MATRIX</div>
+      <UserHeader user={user}/>
       {user ? <MatrixPage/>:<SignInPage/>}
     </div>
   );

@@ -1,7 +1,6 @@
 {
   "hosting": {
     "public": "build",
-    "target": "https://the-eisenhower-matrix.web.app/",
     "ignore": [
       "firebase.json",
       "**/.*",

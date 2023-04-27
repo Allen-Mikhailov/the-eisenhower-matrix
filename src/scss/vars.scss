@@ -1,0 +1,30 @@
+$grid-margins: min(2vh, 2vw);
+$matrix-size: min(70vw, 65vh);
+$text-spacing: min(.5vh, .5vw); 
+
+@mixin font {
+    font-family:'Lexend Deca';
+    // font-weight: 500;
+    color: white;
+    font-size: min(2vh, 2vw);
+}
+
+.base-font {
+    @include font;
+    font-size: min(2vh, 2vw);
+}
+
+.sub1-font {
+    @include font;
+    font-size: min(2.5vh, 2.5vw);
+}
+
+.sub2-font {
+    @include font;
+    font-size: min(3vh, 3vw);
+}
+
+.title-font {
+    @include font;
+    font-size: min(5vh, 5vw);
+}

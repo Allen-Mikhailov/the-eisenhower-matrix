@@ -1,4 +1,4 @@
-@use "./spacing.scss" as *;
+@use "./vars.scss" as *;
 
 body {
     background-color: rgb(27, 27, 27);
@@ -6,26 +6,7 @@ body {
     height: 100vh;
     margin: 0px;
 
-    font-family:'Lexend Deca';
-    // font-weight: 500;
-    color: white;
-    font-size: min(2vh, 2vw);
-}
-
-.base-font {
-    font-size: min(2vh, 2vw);
-}
-
-.sub1-font {
-    font-size: min(2.5vh, 2.5vw);
-}
-
-.sub2-font {
-    font-size: min(3vh, 3vw);
-}
-
-.title-font {
-    font-size: min(5vh, 5vw);
+    @include font    
 }
 
 @mixin center {

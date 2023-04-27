@@ -10,7 +10,7 @@ import SignInPage from "./pages/SignInPage";
 
 
 function App() {
-  const [user] = [true]//useAuthState()
+  const [user] = useAuthState(auth)
 
 
   return (

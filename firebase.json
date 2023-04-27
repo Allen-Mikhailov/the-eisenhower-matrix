@@ -8,7 +8,7 @@
     ],
     "rewrites": [
       {
-        "source": "**",
+        "source": "!/static/**",
         "destination": "/index.html"
       }
     ]

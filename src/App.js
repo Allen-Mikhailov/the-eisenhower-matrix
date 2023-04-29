@@ -17,7 +17,8 @@ function App() {
     <div className="App">
       <div id="title" className="title-font">EISENHOWER MATRIX</div>
       <UserHeader user={user}/>
-      {user ? <MatrixPage/>:<SignInPage/>}
+      <MatrixPage/>
+      {/* {user ? <MatrixPage/>:<SignInPage/>} */}
     </div>
   );
 }

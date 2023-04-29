@@ -16,10 +16,17 @@ function TaskInput({pos, index, task, setTask})
 
 function GridPart({id, action, children, tasks, setTasks})
 {
+
+    function setTask(index, value)
+    {
+        tasks[index] = value
+        setTasks(tasks)
+    }
+
     return <div id={id}>
         <div className="sugested-action sub1-font">{action}</div>
         {ids.map((index) => <TaskInput pos={id} index = {index} key={index} 
-            task={tasks[index-1]} setTask={(value) => setTasks(index-1, value)}/>)}
+            task={tasks[index-1]} setTask={(value) => setTask(index-1, value)}/>)}
         {children}
     </div>
 }

@@ -1,0 +1,56 @@
+$tab-color: #4b4b4b79;
+
+.matrix-picker {
+    position: absolute;
+    
+    top: 50%;
+    width: 10em;
+    height: 1.5em;
+
+    translate: 0% -50%;
+
+    // width: 10em;
+    height: 25em;
+    // height: fit-content;
+    background-color: $tab-color;
+    // overflow-x: visible;
+
+    transition: all .5s;
+
+    &.closed {
+        translate: -100% -50%;
+    }
+
+    &.open {
+
+    }
+}
+
+.matrix-picker-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+.matrix-picker-tab {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+
+    background-color: $tab-color;
+
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    border-left: solid 2px #24242479;
+
+    width: 15%;
+    height: 5vh;
+
+    translate: 0% -50%;
+}
+
+.matrix-picker-header {
+    width: 100%;
+}

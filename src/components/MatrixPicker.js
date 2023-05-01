@@ -29,8 +29,8 @@ function MatrixPickerMatrix({text, type})
         setCurrentMatrix({"id": text, "type": type})
     }
 
-    return <div className={`matrix-picker-header ${isSelected(currentMatrix, text, type)}`} onClick={select}>
-        <div className="matrix-picker-header-text">
+    return <div className={`matrix-picker-matrix ${isSelected(currentMatrix, text, type)}`} onClick={select}>
+        <div className="matrix-picker-matrix-text">
             {text}  
         </div>
     </div>
@@ -40,9 +40,18 @@ function MatrixPickerNewMatrix({onCreate})
 {
     const [text, setText] = useState("")
 
+    function create(text)
+    {
+
+
+
+        onCreate(text)
+        setText("")
+    }
+
     return <div className="matrix-picker-new-matrix">
         <div className="matrix-picker-new-matrix-container">
-            <img src={PlusIcon} className="matrix-picker-new-matrix-button" onClick={() => onCreate(text)}/>
+            <img src={PlusIcon} className="matrix-picker-new-matrix-button" onClick={() => create(text)}/>
         </div>
 
         <input 

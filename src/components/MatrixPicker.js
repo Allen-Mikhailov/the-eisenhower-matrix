@@ -14,9 +14,22 @@ function MatrixPickerHeader({text})
     </div>
 }
 
-function MatrixPickerMatrix({text})
+function isSelected(currentMatrix, text, type)
 {
-    return <div className="matrix-picker-header">
+    return (currentMatrix.id == text && currentMatrix.type == type )?"selected":"";
+}
+
+function MatrixPickerMatrix({text, type})
+{
+
+    const [currentMatrix, setCurrentMatrix ] = store.useState("current-matrix")
+
+    function select()
+    {
+        setCurrentMatrix({"id": text, "type": type})
+    }
+
+    return <div className={`matrix-picker-header ${isSelected(currentMatrix, text, type)}`} onClick={select}>
         <div className="matrix-picker-header-text">
             {text}  
         </div>
@@ -44,6 +57,7 @@ function MatrixPickerNewMatrix({onCreate})
 function MatrixPicker({createNewLocal, createNewFirebase})
 {
     const [localMatrices] = store.useState("local-matrices")
+    const [firebaseMatrices] = store.useState("firebase-matrices")
 
     const [ open, setOpen ] = useState(false)
 
@@ -54,15 +68,15 @@ function MatrixPicker({createNewLocal, createNewFirebase})
         <div className="matrix-picker-container">
             {auth.currentUser && <div>
                 <MatrixPickerHeader text={auth.currentUser.displayName}/>
-                {Object.keys(localMatrices).map((key => {
-                    return <MatrixPickerMatrix text={key}/>
-                }))}
-                <MatrixPickerNewMatrix onCreate={createNewLocal}/>
+                {Object.keys(localMatrices).map((key) => {
+                    return <MatrixPickerMatrix key={key} text={key} type="local"/>
+                })}
+                <MatrixPickerNewMatrix onCreate={createNewFirebase}/>
             </div>}
             <MatrixPickerHeader text={"local"}/>
-            {Object.keys(localMatrices).map((key => {
-                return <MatrixPickerMatrix text={key}/>
-            }))}
+            {Object.keys(localMatrices).map((key) => {
+                return <MatrixPickerMatrix key={key} text={key} type="local"/>
+            })}
             <MatrixPickerNewMatrix onCreate={createNewLocal}/>
         </div>
     </div>

@@ -26,14 +26,29 @@ const datakeys = {
   "settings": "settings:0.0"
 }
 
+function EmptyMatrix()
+{
+  return {"top-left": [], "top-right": [], "bottom-left": [], "bottom-right": []}
+}
+
 function App() {
   const [user] = useAuthState(auth)
 
+  const [localMatrices, setLocalMatrices, updateLocalMatricies] = store.useState("local-matrices")
+
+  function createLocalMatrix({text})
+  {
+    updateLocalMatricies((matrices) => {
+      const newMatrix = EmptyMatrix()
+      matrices[text] = newMatrix;
+      return matrices
+    })
+  }
 
   return (
     <div className="App">
       <FsDataManager dataKeys={datakeys}/>
-      <MatrixPicker/>
+      <MatrixPicker createNewLocal={createLocalMatrix}/>
       <div id="title" className="title-font">EISENHOWER MATRIX</div>
       <UserHeader user={user}/>
       <MatrixPage/>

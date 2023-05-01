@@ -1,3 +1,5 @@
+@use "./vars.scss" as *;
+
 $tab-color: #4b4b4b79;
 
 .matrix-picker {
@@ -27,7 +29,7 @@ $tab-color: #4b4b4b79;
 }
 
 .matrix-picker-container {
-    width: 100%;
+    width: calc(100% + 10px);
     height: 100%;
     overflow-y: scroll;
 }
@@ -51,6 +53,62 @@ $tab-color: #4b4b4b79;
     translate: 0% -50%;
 }
 
+$matrix-picker-margin: 5%;
+
+.matrix-picker-icon {
+
+}
+
 .matrix-picker-header {
     width: 100%;
+    height: 1.5em;
+    background-color: #57575779;
+
+    .matrix-picker-header-text {
+
+        user-select: none;
+
+        position: absolute;
+        left: $matrix-picker-margin;
+    }
+}
+
+.matrix-picker-new-matrix {
+    width: 100%;
+    height: 1.5em;
+    // position: absolute;
+    .matrix-picker-new-matrix-input {
+
+        position: absolute;
+        width: 80%;
+        left: $matrix-picker-margin;
+        height: 1.5em;
+
+        @include font;
+        border: none;
+        background: none;
+        outline: none;
+    }
+
+    .matrix-picker-new-matrix-container {
+        position: absolute;
+        width: 100%;
+        height: 1.5em;
+    }
+    
+}
+
+.matrix-picker-new-matrix-button {
+    position: absolute;
+    // width: 1vh;
+    // aspect-ratio: 1;
+    width: 1.1em;
+    height: 1.1em;
+    right: .2em;
+    bottom: .2em;
+    filter: opacity(30%);
+    // background-image: url("../imgs/plus.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }

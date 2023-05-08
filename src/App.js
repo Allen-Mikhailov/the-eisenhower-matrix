@@ -79,6 +79,10 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    
+  }, [localMatrices])
+
   return (
     <div className="App">
       <FsDataManager dataKeys={datakeys}/>

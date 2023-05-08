@@ -1,6 +1,7 @@
 import { auth, firestore } from "./modules/firebaseStuff";
 import { store } from "./modules/store.js"
 import FsDataManager from "./components/FsDataManager";
+import FirebaseDataManager from "./components/FirebaseDataManager";
 
 import { useEffect } from "react";
 
@@ -13,6 +14,7 @@ import UserHeader from "./components/UserHeader";
 
 import MatrixPicker from "./components/MatrixPicker";
 
+store.setState("firebase-matrices", {})
 store.setState("local-matrices", {})
 store.setState("settings", {})
 
@@ -56,13 +58,22 @@ function App() {
   const [user] = useAuthState(auth)
 
   const [localMatrices, setLocalMatrices, updateLocalMatricies] = store.useState("local-matrices")
-  const [firebaseMatrices] = store.useState("firebase-matrices")
+  const [firebaseMatrices, _, updateFirebaseMatrices] = store.useState("firebase-matrices")
 
   const [currentMatrix, setCurrentMatrix ] = store.useState("current-matrix")
 
   function createLocalMatrix(text)
   {
     updateLocalMatricies((matrices) => {
+      const newMatrix = EmptyMatrix()
+      matrices[NewFileName(matrices, text)] = newMatrix;
+      return matrices
+    })
+  }
+
+  function createFirebaseMatrix(text)
+  {
+    updateFirebaseMatrices((matrices) => {
       const newMatrix = EmptyMatrix()
       matrices[NewFileName(matrices, text)] = newMatrix;
       return matrices
@@ -76,6 +87,10 @@ function App() {
       updateLocalMatricies((matrices) => {
         matrices[currentMatrix.id] = matrix
       })
+    } else {
+      updateFirebaseMatrices((matrices) => {
+        matrices[currentMatrix.id] = matrix
+      })
     }
   }
 
@@ -86,13 +101,14 @@ function App() {
   return (
     <div className="App">
       <FsDataManager dataKeys={datakeys}/>
+      {user && <FirebaseDataManager dataKeys={{"firebase-matrices": ["users", user.uid]}}/>}
       <div id="title" className="title-font">EISENHOWER MATRIX</div>
       <UserHeader user={user}/>
       <MatrixPage 
       matrix={currentMatrix.type == "local"? localMatrices[currentMatrix.id]:firebaseMatrices[currentMatrix.id]}
       updateMatrix={updateCurrentMatrix}
       />
-      <MatrixPicker createNewLocal={createLocalMatrix}/>
+      <MatrixPicker createNewLocal={createLocalMatrix} createNewFirebase={createFirebaseMatrix}/>
     </div>
   );
 }

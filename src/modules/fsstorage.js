@@ -29,4 +29,4 @@ const storeData = async (key, value) => {
   }
 
 
-export { storeData, getData, getJsonData }
+export { storeData, getJsonData }

@@ -28,7 +28,12 @@ const datakeys = {
 
 function EmptyMatrix()
 {
-  return {"top-left": [], "top-right": [], "bottom-left": [], "bottom-right": []}
+  const empty10 = []
+
+  for (let  i = 0; i < 10; i++)
+    empty10.push("")
+
+  return {"top-left": [...empty10], "top-right": [...empty10], "bottom-left": [...empty10], "bottom-right": [...empty10]}
 }
 
 const fileRegex = /(\d+)/
@@ -51,14 +56,27 @@ function App() {
   const [user] = useAuthState(auth)
 
   const [localMatrices, setLocalMatrices, updateLocalMatricies] = store.useState("local-matrices")
+  const [firebaseMatrices] = store.useState("firebase-matrices")
+
+  const [currentMatrix, setCurrentMatrix ] = store.useState("current-matrix")
 
   function createLocalMatrix(text)
   {
     updateLocalMatricies((matrices) => {
       const newMatrix = EmptyMatrix()
-      matrices[NewFileName(matrices, text)]= newMatrix;
+      matrices[NewFileName(matrices, text)] = newMatrix;
       return matrices
     })
+  }
+
+  function updateCurrentMatrix(matrix)
+  {
+    if (currentMatrix.type == "local")
+    {
+      updateLocalMatricies((matrices) => {
+        matrices[currentMatrix.id] = matrix
+      })
+    }
   }
 
   return (
@@ -66,7 +84,10 @@ function App() {
       <FsDataManager dataKeys={datakeys}/>
       <div id="title" className="title-font">EISENHOWER MATRIX</div>
       <UserHeader user={user}/>
-      <MatrixPage/>
+      <MatrixPage 
+      matrix={currentMatrix.type == "local"? localMatrices[currentMatrix.id]:firebaseMatrices[currentMatrix.id]}
+      updateMatrix={updateCurrentMatrix}
+      />
       <MatrixPicker createNewLocal={createLocalMatrix}/>
     </div>
   );

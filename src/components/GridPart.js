@@ -19,8 +19,9 @@ function GridPart({id, action, children, tasks, setTasks})
 
     function setTask(index, value)
     {
-        tasks[index] = value
-        setTasks(tasks)
+        const newtasks = [...tasks]
+        newtasks[index] = value
+        setTasks(newtasks)
     }
 
     return <div id={id}>

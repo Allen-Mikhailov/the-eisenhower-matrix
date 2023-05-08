@@ -42,9 +42,6 @@ function MatrixPickerNewMatrix({onCreate})
 
     function create(text)
     {
-
-
-
         onCreate(text)
         setText("")
     }
@@ -77,8 +74,8 @@ function MatrixPicker({createNewLocal, createNewFirebase})
         <div className="matrix-picker-container">
             {auth.currentUser && <div>
                 <MatrixPickerHeader text={auth.currentUser.displayName}/>
-                {Object.keys(localMatrices).map((key) => {
-                    return <MatrixPickerMatrix key={key} text={key} type="local"/>
+                {Object.keys(firebaseMatrices || {}).map((key) => {
+                    return <MatrixPickerMatrix key={key} text={key} type="firebase"/>
                 })}
                 <MatrixPickerNewMatrix onCreate={createNewFirebase}/>
             </div>}

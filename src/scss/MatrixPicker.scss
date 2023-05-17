@@ -42,8 +42,15 @@ $tab-color: #4b4b4b79;
 
     background-color: $tab-color;
 
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-image: url("../imgs/arrow.png");
+
+    rotate: 180deg;
+
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
 
     border-left: solid 2px #24242479;
 

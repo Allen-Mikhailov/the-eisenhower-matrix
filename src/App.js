@@ -3,6 +3,8 @@ import { store } from "./modules/store.js"
 import FsDataManager from "./components/FsDataManager";
 import FirebaseDataManager from "./components/FirebaseDataManager";
 
+import LoveTag from "./components/LoveTag";
+
 import { useEffect } from "react";
 
 import {useAuthState} from "react-firebase-hooks/auth"
@@ -101,6 +103,7 @@ function App() {
   return (
     <div className="App">
       <FsDataManager dataKeys={datakeys}/>
+      <LoveTag/>
       {user && <FirebaseDataManager dataKeys={{"firebase-matrices": ["users", user.uid]}}/>}
       <div id="title" className="title-font">EISENHOWER MATRIX</div>
       <UserHeader user={user}/>
